@@ -1,63 +1,63 @@
 <div class="row">
 
-       <div class="col-md-3">
+  <div class="col-md-3">
 
-                  <%= image_tag avatar_url(@user), class: "avatar-full" %>
-                  
-                  <% if current_user != @user %>
+    <%= image_tag avatar_url(@user), class: "avatar-full" %>
 
-     <div class="row-space-2">
+    <% if current_user != @user %>
 
-         <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-primary wide" %>
+    <div class="row-space-2">
 
-     </div>
+      <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: @user.id), method: 'post', class: "btn btn-primary wide" %>
 
- <% end %>
+    </div>
 
-                  <div class="panel panel-default">
+    <% end %>
 
-                        <div class="panel-heading">Vérification</div>        
+    <div class="panel panel-default">
 
-                                <div class="panel-body">
+      <div class="panel-heading">Vérification</div>
 
-                                       Email: <%= @user.email %><br>
+      <div class="panel-body">
 
-                                       Tél: <%= @user.phone_number %>
+        Email:
+        <%= @user.email %><br>
 
-                                </div>
+        Tél:
+        <%= @user.phone_number %>
 
-                         </div>
+      </div>
 
-                   </div>
+    </div>
 
-          <div class="col-md-9">
+  </div>
 
-                <h2><%= @user.fullname %></h2>
+  <div class="col-md-9">
 
-                <div class="description row-space-3">
+    <h2><%= @user.fullname %></h2>
 
-                      <%= @user.description %>
+    <div class="description row-space-3">
 
-                </div>
+      <%= @user.description %>
 
-            <h4>Annonces (<%= @rooms.length %>)</h4><br>
-        <div class="row">
-            <% @rooms.each do |room| %>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading preview">
-                        <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
-                    </div>
-                    <div class="panel-body">
-                        <%= link_to room.listing_name, room %>
-                    </div>
-                </div>
-            </div>
-            <% end %>
+    </div>
+
+    <h4>Annonces (<%= @rooms.length %>)</h4><br>
+    <div class="row">
+      <% @rooms.each do |room| %>
+      <div class="col-md-4">
+        <div class="panel panel-default">
+          <div class="panel-heading preview">
+            <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+          </div>
+          <div class="panel-body">
+            <%= link_to room.listing_name, room %>
+          </div>
         </div>
+      </div>
+      <% end %>
+    </div>
 
+  </div>
 
-
-           </div>
-
- </div>
+</div>

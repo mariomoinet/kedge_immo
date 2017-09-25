@@ -1,28 +1,50 @@
-<section class="window">
-<div class="container">
-        <table class="resultats">
+<style type="text/css">
+#barre_recherche{
+  background-color: #18BC9C;
+  padding-top: 20px;
+  padding-bottom:20px;
+  border-radius: 7px;
 
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :school_cont,id:"tags", class:"form-control", value: @school_cont %>
-              <%= f.text_field :price_gteq,  class:"form-control"%>
-              <%= f.text_field :price_lteq,  class:"form-control"%>
-              <%= f.search_field :nb_place_eq,  class:"form-control" %>
-                <%= f.submit "Rechercher",  class: "btn btn-primary"%>
-<% end %>
-        </table>
-<% @rooms.each do |room| %>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading preview">
-                    <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
-                </div>
-                <div class="panel-body">
-
-                    <%= link_to room.price, room_path(room) %> € - <%= link_to room.listing_name, room_path(room) %> </b>
-                    <br><%= link_to room.home_type, room_path(room) %> - <%= link_to room.room_type, room_path(room) %></p>
-                </div>
-            </div>
+}
+#resultat_annonce{
+  border-radius: 5px;
+}
+</style>
+    <div class="row">
+        <div class="col-md-3" id="barre_recherche">
+          <table class="resultats" >
+            <%= search_form_for @q do |f| %>
+            <%= f.label :school_cont, "Nom de l'école" %>
+            <%= f.search_field :school_cont,id:"tags", class:"form-control", value: @school_cont %>
+            <br>
+            <%= f.label :price_gteq, "Prix minimum" %>
+            <%= f.text_field :price_gteq,  class:"form-control"%>
+            <%= f.label :price_lteq, "Prix maximum" %>
+            <%= f.text_field :price_lteq,  class:"form-control"%>
+            <br>
+            <%= f.label :nb_place_eq, "Nombre de places" %>
+            <%= f.search_field :nb_place_eq, prompt: "Nombre de places",  class:"form-control" %>
+            <br>
+            <%= f.submit "Rechercher",  class: "btn btn-primary"%>
+            <% end %>
+          </table>
         </div>
+        <% @rooms.each do |room| %>
+        <div class="col-md-4">
+          <div class="panel panel-default" id="resultat_annonce">
+            <div class="panel-heading preview">
+              <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+            </div>
+            <div class="panel-body">
+              <%= link_to room.price, room_path(room) %>
+              € -
+              <%= link_to room.listing_name, room_path(room) %>
+            </b>
+            <br><%= link_to room.home_type, room_path(room) %>
+            -
+            <%= link_to room.room_type, room_path(room) %></p>
+        </div>
+      </div>
+    </div>
     <% end %>
-</div>
-</section>
+  </div>

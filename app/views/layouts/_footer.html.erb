@@ -1,11 +1,31 @@
-<footer class="text-muted">
-        <div class="container">
-        <div class="col-md-3">
-        <hr width="1050" align="center">
-         <p><%= link_to 'Aidez-moi :)',  pages_aidezmoi_path %></p>
-         <p><%= link_to 'Charte',  pages_charte_path %></p>
-         <p><%= link_to 'Informations légales',  pages_informations_path %></p>
-         <p><%= link_to 'Politique de confidentialité',  pages_conditions_path %></p>
-         </div>
-         </div>
-</footer> 
+<style type="text/css">
+  #container_footer{
+    display: flex;
+    justify-content: center;
+  }
+  #footer_item{
+    flex: 1;
+  }
+</style>
+
+<nav class="navbar navbar-default navbar-fixed-bottom ">
+  <div id="container_footer">
+
+
+  <span class="navbar-text" id="footer_item">
+    <%= link_to 'Aidez-moi :)',  pages_aidezmoi_path %>
+  </span>
+  <span class="navbar-text" id="footer_item">
+    <%= link_to 'Charte',  pages_charte_path %>
+  </span>
+
+  <span class="navbar-text" id="footer_item">
+    <%= link_to 'Informations légales',  pages_informations_path %>
+  </span>
+
+  <span class="navbar-text" id="footer_item">
+    <%= link_to 'Politique de confidentialité',  pages_conditions_path %>
+  </span>
+  </div>
+
+  </nav>

@@ -278,24 +278,24 @@ input[type="checkbox"]:checked:before {
 
 /* CSS form reservation */
 
-.reservation-table td {       
+.reservation-table td {
 
        width: 100%;
 
-       border: 1px solid #dce0e0;       
+       border: 1px solid #dce0e0;
 
        padding: 10px;
 
 }
 
-  
+
 .wide {
 
  width: 100%;
 
  }
 
-  
+
 .price_tag {
 
        background-color: #606567;
@@ -309,11 +309,11 @@ input[type="checkbox"]:checked:before {
        margin-bottom: 10px;
 
  }
- 
- 
+
+
  /* css messagerie */
- 
- 
+
+
  .conversation {
 
        color: #7f7f7f;
@@ -326,45 +326,22 @@ input[type="checkbox"]:checked:before {
 
      background-color: #F4F4F5;
 
- } 
- 
- 
- /* HOMEPAGE CSS*/
-.jumbotron {
-  background-image: url("http://static.booking.weekendesk.fr/image_cache/A773000/773815/773815_1920_595_FSImage_1_EDIT_marseille2.jpg");
-  padding-top: 6rem;
-   padding-bottom: 6rem;
-   margin-bottom: 0;
-   background-color: #fff;
-   height: 450px;
-   width: 100%;
-   position: relative;
  }
- 
- .jumbotron p:last-child {
-   margin-bottom: 0;
- }
- 
- .jumbotron-heading {
-   font-weight: 200;
- }
- 
- .jumbotron .container {
-  
- }
- 
+
+
+
  /* FOOTER DU MODEL */
- 
+
  footer {
    padding-top: 3rem;
    padding-bottom: 3rem;
  }
- 
+
  footer p {
    margin-bottom: .25rem;
    font-size: 100%;
  }
- 
+
  #sloganetsearch {
    margin-left: auto;
    margin-right: auto;
@@ -386,4 +363,9 @@ input[type="checkbox"]:checked:before {
 
 .resultats {
   margin-top : 0;
+}
+
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
 }
