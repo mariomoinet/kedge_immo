@@ -20,6 +20,19 @@
 @import "toastr";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background: #000000;
+    color: #FFFFFF;
+}
 /* CSS pour l'avatar */
 .avatar-small {
   width: 28px;
@@ -330,17 +343,6 @@ input[type="checkbox"]:checked:before {
 
 
 
- /* FOOTER DU MODEL */
-
- footer {
-   padding-top: 3rem;
-   padding-bottom: 3rem;
- }
-
- footer p {
-   margin-bottom: .25rem;
-   font-size: 100%;
- }
 
  #sloganetsearch {
    margin-left: auto;
