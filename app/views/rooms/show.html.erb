@@ -1,0 +1,240 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        
+        <!-- Photo principale de l'annonce -->
+        <div class="row">
+            <div class="col-md-12">
+                <center><%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %></center>
+            
+            </div>
+        </div>
+        
+        <br>
+        
+        <!-- Informations principales -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <%= image_tag avatar_url(@room.user), class:"img-circle avatar-large" %>
+                        <br>
+                        <br>
+                        <h5><%= @room.user.fullname %></h5>
+                    </div>
+                    <div class="col-md-9">
+                        <h3><%= @room.listing_name %></h3>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @room.address %></p>
+                        <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> Près de: <%= @room.school %></p>
+                        <br>
+                        <div class="row text-center row-space-1">
+                            <div class="col-sm-2">
+                                <i class="fa fa-home fa-2x"></i>
+                            </div>
+                              <div class="col-sm-3">
+                                <i class="fa fa-arrows-alt fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-users fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-bath fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-sm-2">
+                                <%= @room.home_type %>
+                            </div>
+                            <div class="col-sm-3">
+                                Surface : <%= @room.taille %> m²
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.nb_coloc %> <%= @room.nb_coloc > 1 ? "Colocataires au total" : "Colocataire au total" %>
+                            </div>
+
+                            <div class="col-sm-3">
+                                <%= @room.salle_bain %> <%= @room.salle_bain > 1 ? "Salles de bain" : "Salle de bain" %>
+                            </div>
+                        </div>
+                        <br>
+                            <div class="row text-center row-space-1">
+                            <div class="col-sm-2">
+                                <i class="fa fa-bed fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-transgender fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-check fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-file-text-o fa-2x"></i>
+                            </div>
+                        </div>
+                        
+                            <div class="row text-center">
+                            <div class="col-sm-2">
+                                <%= @room.room_type %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.sexe %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.nb_place %> <%= @room.nb_place > 1 ? "Places disponibles" : "Place disponible" %>
+                            </div>
+                            <div class="col-sm-3">
+                                Type de bail : <%= @room.bail %>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Formulaire de réservation -->
+                <%= render 'reservations/form' %>  
+                <br>
+            <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: @room.user.id), method: 'post', class: "btn btn-primary wide" %>
+            </div>
+
+        </div>
+        
+        
+        <!-- Description -->
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>A propos de cette colocation</h3>
+                <%= @room.summary %>
+            </div>
+                        
+        </div>
+        
+        
+        <!-- Equipements -->
+        <br>
+        <div class="row">
+            <div class="col-md-2">
+                <p>Equipements</p>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.wifi %>"><i class="fa fa-wifi" aria-hidden="true"></i> Wifi</li>
+                            <li class="<%= 'text-line-through' if !@room.tv %>"><i class="fa fa-television" aria-hidden="true"></i> Télévision</li>
+                            <li class="<%= 'text-line-through' if !@room.ascenceur %>"><i class="fa fa-arrows-v" aria-hidden="true"></i> Ascenceur</li>
+                            <li class="<%= 'text-line-through' if !@room.terasse%>"><i class="fa fa-tree" aria-hidden="true"></i> Terrasse</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.lave_linge %>"><i class="fa fa-superpowers" aria-hidden="true"></i> Lave linge</li>
+                            <li class="<%= 'text-line-through' if !@room.four %>"><i class="fa fa-fire" aria-hidden="true"></i> Four</li>
+                            <li class="<%= 'text-line-through' if !@room.piscine %>"><i class="fa fa-sun-o" aria-hidden="true"></i> Piscine</li>
+                            <li class="<%= 'text-line-through' if !@room.voiture %>"><i class="fa fa-car" aria-hidden="true"></i> Voiture</li>
+                        </ul>
+                    </div>
+                    
+                      <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.seche_linge %>"><i class="fa fa-superpowers" aria-hidden="true"></i> Sèche linge</li>
+                            <li class="<%= 'text-line-through' if !@room.machine_laver %>"><i class="fa fa-superpowers" aria-hidden="true"></i> Lave vaisselle</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    <!-- Carrousel -->
+        <br>
+        <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                          <!-- Indicators -->
+                            <% if @photos %>
+                                <% @photos.each do |photo| %>
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                                  </ol>
+                                <% end %>
+                            <% end %>
+                        
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner" role="listbox">
+                            <% if @photos %>
+                            <% @photos.each do |photo| %>
+                            <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                              <%= image_tag photo.image.url() %>
+                            </div>
+                            <% end %>
+                            <% end %>
+                          </div>
+                        
+                          <!-- Left and right controls -->
+                          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Précédent</span>
+                          </a>
+                          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Suivant</span>
+                          </a>
+                        </div>
+                    </div>
+                </div>
+<!-- Google maps -->
+     <br>
+     <div class="row">
+            <div class="col-md-12">
+                <div id="map"></div>
+                
+                <style>
+                   #map {
+                    height: 400px;
+                    width: 70%;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
+                   }
+                </style>
+                
+                <script>
+                  function initMap() {
+                    var uluru = {lat: <%= @room.latitude %>, lng: <%= @room.longitude %>};
+                    var map = new google.maps.Map(document.getElementById('map'), {
+                      zoom: 15,
+                      center: uluru
+                    });
+                    var marker = new google.maps.Marker({
+                      position: uluru,
+                      map: map
+                    });
+                  }
+                </script>
+                <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe5rEz5JLIUL5UWgRR6zbSlvM0aYkdf4k&callback=initMap">
+                </script>
+            </div>
+        </div>
+<!-- Logements à proximité -->
+         <h3>A proximité...</h3>
+         <div class="row">
+             <% for room in @room.nearbys(2).limit(3) %> <!-- situé à 2 miles environ 3 km et limité à 3 annonces -->
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                       <div class="panel-heading preview">
+                            <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+                       </div>
+                       <div class="panel-body">
+                         <%= link_to room.listing_name, room %><br>
+                          (à <%= (room.distance*1.6).round(2) %> km)
+                       </div>
+                    </div>
+                 </div>
+             <% end %>
+         </div>
+
+
+    </div>
+</div>

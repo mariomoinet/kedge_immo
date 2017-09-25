@@ -1,0 +1,34 @@
+<script>
+$( function() {
+  var availableTags = [
+    "HEC",
+    "ESSEC",
+    "ESCP EUROPE",
+    "EM LYON",
+    "EDHEC LILLE",
+    "EDHEC NICE",
+    "AUDENCIA",
+    "TBS",
+    "GEM",
+    "KEDGE MARSEILLE",
+    "KEDGE BORDEAUX",
+    "NEOMA REIMS",
+    "NEOMA ROUEN",
+    "SKEMA LILLE",
+    "SKEMA NICE",
+    "MBS",
+  ];
+  $( "#tags" ).autocomplete({
+    source: availableTags
+  });
+  $("#tags").attr("placeholder", "Ton école");
+  $("#tags").blur(function(){
+    val = $("#tags").val();
+    if (availableTags.includes(val) == false ){
+      $("#tags").val("");
+      alert("veuillez");
+    }
+
+  });
+} );
+</script>

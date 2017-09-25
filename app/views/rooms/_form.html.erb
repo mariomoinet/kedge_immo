@@ -1,0 +1,240 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Créez votre annonce FullRoom
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            <%= form_for @room, html: {multipart: true} do |f| %>
+            <%= render 'shared/errors' %>
+            <div class="row">
+                <h3>Descriptif de votre colocation</h3>
+                <hr>
+                <div class="row">
+                    <font size="1"><strong style="color:Tomato">*</strong> Champs obligatoires</font>
+                    <br>
+                </div>
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Genre d'habitation <strong style="color:Tomato">*</strong></label>
+                            <%= f.select :home_type, [["Maison","Maison"], ["Appartement","Appartement"]], id: "home_type",
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Type de chambre <strong style="color:Tomato">*</strong></label>
+                            <%= f.select :room_type, [["Chambre privée","Chambre privée"], ["Chambre partagée","Chambre partagée"]], id: "room_type",
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                    </div>
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label> Nombre de colocataires max <strong style="color:Tomato">*</strong></label>
+                            <%= f.select :nb_coloc, [["1 colocataire",1], ["2 colocataires",2],
+                            ["3 colocataires", 3], ["4 colocataires",4], ["5 colocataires",5], ["6 colocataires",6]],
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Nombre de places disponibles <strong style="color:Tomato">*</strong></label>
+                        <%= f.select :nb_place, [["1 place disponible",1], ["2 places disponibles",2],
+                        ["3 places disponibles", 3], ["4 places ou plus disponibles",4]],
+                        prompt: "Sélectionner le nombre", class: "form-control" %>
+                    </div>
+                    </div>
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Nombre de salle(s) de bain <strong style="color:Tomato">*</strong></label>
+                            <%= f.select :salle_bain, [["1 salle de bain",1], ["2 salles de bain",2],
+                            ["3 salles de bain", 3], ["4 salles de bain ou plus",4]],
+                            prompt: "Sélectionner le nombre", class: "form-control" %>
+                        </div>
+                    </div>
+                     <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Colocataire recherché(e) <strong style="color:Tomato">*</strong></label>
+                            <%= f.select :sexe, [["Homme","Homme"], ["Femme","Femme"], ["Indifférent","Indifférent"]],  id: "sexe",
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                        </div>
+                    </div>
+            <div class="row">
+                    <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Type de bail <strong style="color:Tomato">*</strong></label>
+                    <%= f.select :bail, [["Bail unique","Bail unique"], ["Bail par colocataire","Bail par colocataire"]],  id: "bail",
+                            prompt: "A sélectionner...", class: "form-control" %>
+                    </div>
+                    </div>
+            </div>
+                <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Taille de l'habitation <strong style="color:Tomato">*</strong></label>
+                        <div class="input-group">
+                                <%= f.text_field :taille, placeholder: "ex : 40m²", class: "form-control" %>
+                                <div class="input-group-addon">m²</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Loyer <strong style="color:Tomato">*</strong></label>
+                        <div class="input-group">
+                                <%= f.text_field :price, placeholder: "ex: 500€", class: "form-control" %>
+                                <div class="input-group-addon">€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                    <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Date de disponibilité <strong style="color:Tomato">*</strong></label>
+                        <%= f.text_field :start_date, placeholder: "ex: 12-09-2017", class: "form-control" %>
+                    </div>
+                    </div>
+                    <div class="col-md-4 ">
+                          <div class="form-group" >
+                              <label>Ecole <strong style="color:Tomato">*</strong></label>
+                        <%= f.text_field :school, autofocus: true, id:"tags", placeholder: "ex: HEC", class:"form-control"  %>
+                          </div>
+                </div>
+                </div>
+            <div class="row">
+                <div class="col-md-4">
+                       <div class="form-group">
+                             <span class="btn btn-default btn-file">
+                            <i class = "fa fa-cloud-upload fa-lg"></i> Téléchargez vos photos !
+                 <%= file_field_tag "images[]", type: :file, multiple: true %>
+                             </span>
+                             
+                           </div>
+                       </div>
+                       <p><font size="2">Vos photos sont bien chargées suite à leur ajout. Elles s'afficheront lors de la création de l'annonce.</font></p>
+                 </div>
+                <div id="photos"><%= render 'photos/list' %></div>
+            <div class="row">
+                <h3>Descriptif complet</h3>
+                <hr>
+                    <div class="form-group">
+                        <label>Donnez un nom au logement <strong style="color:Tomato">*</strong></label>
+                        <%= f.text_field :listing_name, placeholder: "Titre d'annonce ex: Appartement 3 pièces de 70m²", class: "form-control" %>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="form-group">
+                        <label>Résumé</label>
+                        <%= f.text_area :summary, rows:4, placeholder: "Décrivez votre colocation",
+                        class: "form-control" %>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="form-group">
+                        <label>Adresse <strong style="color:Tomato">*</strong></label>
+                        <%= f.text_field :address, placeholder: "Où est situé votre logement ?", class: "form-control" %>
+                    </div>
+                </div>
+                        <div class="row">
+                <p><font size="3">Equipements</font></p>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :wifi %> Wifi
+                    </div>
+                    <div class="form-group">
+                        <%= f.check_box :tv %> Télévision
+                    </div>
+                    <div class="form-group">
+                        <%= f.check_box :ascenceur %> Ascenceur
+                    </div>
+                    <div class="form-group">
+                        <%= f.check_box :terasse %> Terrasse
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :lave_linge %> Lave-linge
+                    </div>
+                    <div class="form-group">
+                        <%= f.check_box :four %> Four
+                    </div>
+                    <div class="form-group">
+                        <%= f.check_box :piscine %> Piscine
+                    </div>
+                    <div class="form-group">
+                        <%= f.check_box :voiture %> Voiture
+                    </div>
+                </div>
+                       <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :seche_linge %> Seche-linge
+                    </div>
+                    <div class="form-group">
+                        <%= f.check_box :machine_laver %> Lave vaisselle
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Vos cordonnées</h3>
+                <hr>
+                <font size="1">Vos informations personnelles (Facebook, Email et Numéro de téléphone) seront affichées seulement aux membres inscrits sur le site.</font>
+            </div>
+
+            <div class="row">
+                    <div class="form-group">
+                        <label>Email <strong style="color:Tomato">*</strong></label>
+                        <%= f.text_field :email, placeholder: "Votre adresse email active", class: "form-control" %>
+                    </div>
+                </div>
+                        <div class="row">
+                    <div class="form-group">
+                        <label>Facebook</label>
+                        <%= f.text_field :facebook, placeholder: "L'URL de votre facebook ex : https://www.facebook.com/fullroom", class: "form-control" %>
+                    </div>
+                </div>
+            <div class="row">
+                    <div class="form-group">
+                        <label>Numéro de téléphone</label>
+                        <%= f.text_field :numero, placeholder: "Votre numéro de téléphone", class: "form-control" %>
+                    </div>
+                </div>
+            <br>
+            <div class="row">
+                <div class="form-group">
+                    <%= f.check_box :active %> Annonce active
+                </div>
+            </div>
+            <div class="actions">
+                      <%= f.submit "Je valide mon annonce",  class: "btn btn-primary"%>
+                    <!-- poser la question -->
+                    <% if controller.action_name == 'edit' && Rails.env.development? %>
+                      <br /><br /><br />
+                      <%= link_to "Je supprime mon annonce", room_path(@room), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
+                    <% end %>
+            </div>
+            <% end %>
+    </div>
+</div>
+</div>
+</div>
+<%= render 'shared/listecole' %>
+<script>
+
+ $(function() {
+
+       $('#room_start_date').datepicker({
+
+                           dateFormat: 'dd-mm-yy',
+
+                           monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+
+                          dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S']                              
+
+        });
+
+ });
+
+</script>

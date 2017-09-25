@@ -1,0 +1,389 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jquery-ui
+ *= require jquery.ui.theme.css
+*/
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "toastr";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+/* CSS pour l'avatar */
+.avatar-small {
+  width: 28px;
+}
+.avatar-medium {
+  width: 48px;
+}
+.avatar-large {
+  width: 68px;
+}
+.avatar-full {
+  width: 100%;
+}
+/* show users */
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: white;
+}
+p {
+  font-size: 20px;
+}
+p.small {
+  font-size: 16px;
+}
+a {
+}
+a,
+a.active,
+a:active,
+a:focus,
+a:hover {
+  outline: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.scroll-top {
+  position: fixed;
+  z-index: 1049;
+  right: 2%;
+  bottom: 2%;
+  width: 50px;
+  height: 50px;
+}
+.scroll-top .btn {
+  font-size: 16px;
+  line-height: 28px;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 100%;
+}
+.scroll-top .btn:focus {
+  outline: none;
+}
+.container {
+  width: 80%;
+}
+.navbar-default {
+  font-family: 'Montserrat', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  background: #2C3E50;
+}
+.navbar-default .navbar-brand {
+  font-size: 3.1rem;
+  color: white;
+}
+.btn-primary.btn {
+  border: 1px solid #ff5a5f;
+  border-radius: 2px;
+  font-weight: bold;
+  background-color: #ff5a5f;
+  color: #fff;
+  padding: 10px 25px;
+}
+.btn-primary.btn:focus,
+.btn-primary.btn:hover {
+  border-color: #ff7e82;
+  border-bottom-color: #fa0008;
+  background-color: #ff7e82;
+  outline: none;
+}
+.btn-primary.btn:active {
+  border-color: #e00007;
+  background-color: #e00007;
+  outline: none;
+}
+.btn-default.btn {
+  width: 100%;
+  border-radius: 2px;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+.panel-default .panel-heading {
+  color: #565a5c;
+  background-color: #18BC9C;
+  font-size: 18px;
+  font-weight: 400;
+}
+.row-space-1 {
+  margin-top: 6px;
+  margin-bottom: 6px;
+}
+.row-space-2 {
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+.row-space-3 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+.description {
+  color: #575757;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+}
+/* CSS registration edit */
+.form-group {
+  margin-bottom: 25px;
+}
+.form-control {
+  border-radius: 2px;
+  height: 4rem;
+}
+.sidebar-list {
+  padding-left: 0;
+  list-style: none;
+}
+.sidebar-item {
+  padding: 10px 0;
+  font-size: 16px;
+  color: #82888a;
+  border-bottom: 1px solid #CCC;
+}
+.sidebar-link {
+  color: #82888a;
+  text-decoration: none;
+}
+.sidebar-link:focus,
+.sidebar-link:hover {
+  color: #cacccd;
+  text-decoration: none;
+}
+.active.sidebar-link {
+  color: #565a5c;
+  font-weight: bold;
+  text-decoration: none;
+}
+.btn-file {
+  position: relative;
+  overflow: hidden;
+}
+.btn-file input[type=file] {
+  position: absolute;
+  top: 0;
+  right: 0;
+  min-width: 100%;
+  min-height: 100%;
+  font-size: 100px;
+  text-align: right;
+  filter: alpha(opacity=0);
+  opacity: 0;
+  outline: none;
+  background: white;
+  cursor: inherit;
+  display: block;
+}
+/* des vues formulaires de création d'annonce */
+label {
+  color: #565a5c;
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+select {
+  color: #565a5c;
+  background-color: #fff;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  padding: 10px;
+  appearance: none;
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
+}
+.select:before {
+  content: '\25bc';
+  font-size: 1.2em;
+  position: absolute;
+  color: #82888A;
+  top: 40px;
+  right: 30px;
+  transform: scale(0.84, 0.42);
+}
+input[type="checkbox"] {
+  height: 1.25em;
+  width: 1.25em;
+  margin-bottom: -0.25em;
+  margin-right: 5px;
+  vertical-align: top;
+  border: 1px solid #c4c4c4;
+  border-radius: 2px;
+  appearance: none;
+  -moz-appearance: none;
+  /* Firefox */
+  -webkit-appearance: none;
+  /* Safari and Chrome */
+}
+input[type="checkbox"]:checked:before {
+  content: "\2713";
+  position: absolute;
+  font-size: 0.95em;
+  text-align: center;
+  width: 1.25em;
+  color: #ff5a5f;
+}
+/* CSS list photos */
+.panel-heading.preview {
+  padding: 0;
+}
+.panel-heading.preview img {
+  width: 100%;
+}
+/* CSS show rooms */
+.equipments li {
+  margin-bottom: 10px;
+  list-style-type: none;
+}
+.text-line-through {
+  text-decoration: line-through;
+}
+/* hover de la liste */
+.ui-menu-item .ui-menu-item-wrapper:hover {
+  border: none !important;
+  background-color: #2C3E50;
+}
+/*  inscription */
+#inscription {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: white;
+  background-color: #18BC9C;
+}
+
+/* CSS form reservation */
+
+.reservation-table td {       
+
+       width: 100%;
+
+       border: 1px solid #dce0e0;       
+
+       padding: 10px;
+
+}
+
+  
+.wide {
+
+ width: 100%;
+
+ }
+
+  
+.price_tag {
+
+       background-color: #606567;
+
+       color: #fff;
+
+       font-size: 20px;
+
+       padding: 10px;
+
+       margin-bottom: 10px;
+
+ }
+ 
+ 
+ /* css messagerie */
+ 
+ 
+ .conversation {
+
+       color: #7f7f7f;
+
+       padding: 10px;
+
+ }
+
+ .conversation:hover, .conversation:focus {
+
+     background-color: #F4F4F5;
+
+ } 
+ 
+ 
+ /* HOMEPAGE CSS*/
+.jumbotron {
+  background-image: url("http://static.booking.weekendesk.fr/image_cache/A773000/773815/773815_1920_595_FSImage_1_EDIT_marseille2.jpg");
+  padding-top: 6rem;
+   padding-bottom: 6rem;
+   margin-bottom: 0;
+   background-color: #fff;
+   height: 450px;
+   width: 100%;
+   position: relative;
+ }
+ 
+ .jumbotron p:last-child {
+   margin-bottom: 0;
+ }
+ 
+ .jumbotron-heading {
+   font-weight: 200;
+ }
+ 
+ .jumbotron .container {
+  
+ }
+ 
+ /* FOOTER DU MODEL */
+ 
+ footer {
+   padding-top: 3rem;
+   padding-bottom: 3rem;
+ }
+ 
+ footer p {
+   margin-bottom: .25rem;
+   font-size: 100%;
+ }
+ 
+ #sloganetsearch {
+   margin-left: auto;
+   margin-right: auto;
+   width: 450px;
+   background-image: url("https://i.imgur.com/tH61gTh.png");
+   border-radius: 5px;
+ }
+
+.window {
+  padding-top: 6rem;
+   padding-bottom: 6rem;
+   margin-bottom: 0;
+   background-color: #18BC9C;
+   height: 450px;
+   width: 100%;
+   position: relative;
+   border-radius: 5px;
+}
+
+.resultats {
+  margin-top : 0;
+}

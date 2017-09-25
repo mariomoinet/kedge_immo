@@ -1,0 +1,69 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  school: MyString
+  address: MyString
+  sexe: MyString
+  room_type: MyString
+  home_type: MyString
+  nb_place: 1
+  nb_coloc: 1
+  price: 1
+  start_date: 
+  bail: MyString
+  apl: 1
+  tv: false
+  wifi: false
+  ascenceur: false
+  terasse: false
+  lave_linge: false
+  four: false
+  piscine: false
+  voiture: false
+  seche_linge: false
+  machine_laver: false
+  taille: 1
+  salle_bain: 1
+  description: MyText
+  fumeur: MyString
+  sportif: MyString
+  fetard: MyString
+  chill: MyString
+  worker: MyString
+  numero: 1
+  email: MyString
+  facebook: MyString
+
+two:
+  school: MyString
+  address: MyString
+  sexe: MyString
+  room_type: MyString
+  home_type: MyString
+  nb_place: 1
+  nb_coloc: 1
+  price: 1
+  start_date: 
+  bail: MyString
+  apl: 1
+  tv: false
+  wifi: false
+  ascenceur: false
+  terasse: false
+  lave_linge: false
+  four: false
+  piscine: false
+  voiture: false
+  seche_linge: false
+  machine_laver: false
+  taille: 1
+  salle_bain: 1
+  description: MyText
+  fumeur: MyString
+  sportif: MyString
+  fetard: MyString
+  chill: MyString
+  worker: MyString
+  numero: 1
+  email: MyString
+  facebook: MyString

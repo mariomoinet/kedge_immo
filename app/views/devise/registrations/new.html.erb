@@ -1,0 +1,37 @@
+<div class="panel panel-default col-md-offset-2 col-md-8 col-md-offset-2">
+  <div class="panel-heading  text-center">
+    <h2 id="inscription">Inscription</h2>
+    <br>
+  </div>
+  <div class="panel-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-2 col-md-8 col-md-offset-2 text-center">
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <!-- suppression du devise error messages! par les errors alert de toastr lors de l'inscription et modification de profil
+      %= devise_error_messages! % -->
+          <%= render 'shared/devise_errors' %>
+          <!-- ajout de l'input fullname -->
+          <div class="form-group">
+            <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "Nom complet (prénom + nom)" %>
+          </div>
+          <div class="form-group">
+            <%= f.text_field :school, autofocus: true, id:"tags", class:"form-control"  %>
+          </div>
+          <div class="form-group">
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder: "Adresse e-mail" %>
+          </div>
+          <div class="form-group">
+            <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Créer un mot de passe " %>
+          </div>
+        <div class="actions col-md-offset-2 col-md-7 ">
+         <br>
+            <%= f.submit "Enregistrer", class: "btn btn-primary" %>
+        </div>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+</div>
+<%= render 'shared/listecole' %>

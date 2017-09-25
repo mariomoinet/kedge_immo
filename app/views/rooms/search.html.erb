@@ -1,0 +1,28 @@
+<section class="window">
+<div class="container">
+        <table class="resultats">
+
+<%= search_form_for @q do |f| %>
+  <%= f.search_field :school_cont,id:"tags", class:"form-control", value: @school_cont %>
+              <%= f.text_field :price_gteq,  class:"form-control"%>
+              <%= f.text_field :price_lteq,  class:"form-control"%>
+              <%= f.search_field :nb_place_eq,  class:"form-control" %>
+                <%= f.submit "Rechercher",  class: "btn btn-primary"%>
+<% end %>
+        </table>
+<% @rooms.each do |room| %>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading preview">
+                    <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
+                </div>
+                <div class="panel-body">
+
+                    <%= link_to room.price, room_path(room) %> € - <%= link_to room.listing_name, room_path(room) %> </b>
+                    <br><%= link_to room.home_type, room_path(room) %> - <%= link_to room.room_type, room_path(room) %></p>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
+</section>

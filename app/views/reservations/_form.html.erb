@@ -1,0 +1,79 @@
+<%= form_for([@room, @room.reservations.new]) do |f| %>     
+
+<!-- affichage de prix -->
+<div class="row">
+        <div class="col-md-12 price_tag">
+            <span>€ <%= @room.price %></span>
+            <span class="pull-right">Par mois</span>
+        </div>
+    </div>
+    
+<div class="row">
+
+         <div class="row">
+        <div class="col-md-6">
+        <% if (user_signed_in?) %>
+            <% else %>
+        <%="Veuillez-vous connecter pour afficher :" %>
+        <%end%>
+        </div>
+         </div>
+         <div class="row">
+         <div class="col-md-6">
+         <label><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook :</label>
+         </div>
+        <div class="col-md-6">
+         <label><i class="fa fa-envelope-square" aria-hidden="true"></i> Email :</label>
+         </div>
+         </div>
+         
+        
+         <div class="row">
+         <div class="col-md-6">
+            <% if (user_signed_in?) %>
+                <a href="<%= @room.facebook %>" target="_blank">Lien facebook</a>
+                <% else %>
+            <%end%>
+         </div>
+        <div class="col-md-6">
+            
+            
+            
+            <% if (user_signed_in?) %>
+            
+            <%= @room.email %>
+                
+                <% else %>
+            
+            <%end%>
+         </div>
+         </div>
+
+
+         <div class="row">
+         <div class="col-md-6">
+            <label><i class="fa fa-phone-square" aria-hidden="true"></i> Téléphone :</label>
+         </div>
+        <div class="col-md-6">
+         </div>
+         </div>
+         
+        <div class="row">
+         <div class="col-md-6">
+            <% if (user_signed_in?) %>
+                <%= @room.numero %>
+                <% else %>
+            <%end%>
+         </div>
+        <div class="col-md-6">
+         </div>
+         </div>
+ </div>
+ 
+     <%= f.hidden_field :room_id, value: @room.id %> <!-- champs caché pour renseigner l’id du logement et le prix -->
+     <%= f.hidden_field :price, value: @room.price %>
+ <br>
+     <%= f.submit "Ajouter à mes favoris", class: "btn btn-primary wide" %>
+
+ <% end %>
+ 
