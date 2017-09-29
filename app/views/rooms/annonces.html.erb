@@ -12,13 +12,13 @@
                  </div>
                 <div class="panel-body">
                       <% @rooms.each do |room| %> <!-- boucle pour afficher chaque annonce -->
-                         <div class="row"> 
+                         <div class="row">
                                  <div class="col-md-2">
                                       <%= image_tag room.photos[0].image.url(:thumb) if room.photos.length > 0 %> <!-- afficher la première photo si il y a des photos -->
-                                 </div>                              
+                                 </div>
                                  <div class="col-md-7">
                                         <h4><%= room.listing_name %></h4>
-                                 </div>                              
+                                 </div>
                                  <div class="col-md-3 right">
                                      <%= link_to "Mettre à jour", edit_room_path(room), class: "btn btn-primary" %>
                                  </div>

@@ -8,30 +8,30 @@ Rails.application.routes.draw do
   get 'rooms/create'
 
   get 'rooms/update'
-  
+
   get 'rooms/index'
 
   get 'rooms/annonces'
-  
+
   get '/your_trips' => 'reservations#your_trips'
-  
+
   get '/your_reservations' => 'reservations#your_reservations'
-  
+
   get 'pages/aidezmoi'
-  
+
   get 'pages/charte'
   get 'pages/informations'
   get 'pages/conditions'
   devise_for :users,
-              :path => '', 
+              :path => '',
                :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
-               :controllers =>{:registrations => 'registrations' } 
+               :controllers =>{:registrations => 'registrations' }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  
+
   root 'rooms#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -41,12 +41,12 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  
+
   resources :users, only: [:show]
   resources :rooms do
               resources :reservations, only: [:create]
    end
-   
+
   resources :photos
   # Example resource route with options:
   #   resources :products do
@@ -56,7 +56,7 @@ Rails.application.routes.draw do
   #     end
   resources :conversations, only: [:index, :create] do
 
-       resources :messages, only: [:index, :create]
+         resources :messages, only: [:index, :create]
 
  end
   #     collection do

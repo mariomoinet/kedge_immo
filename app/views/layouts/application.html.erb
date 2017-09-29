@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Kedge Immo</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <!-- pour rendre le site responsive -->
-  <meta name="viewport" content="width=device-width">
-  <%= csrf_meta_tags %>
-  <%= favicon_link_tag 'favicon.ico' %>
-</head>
-<body>
+  <head>
+    <title>Kedge Immo</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:800i" rel="stylesheet">
+    <meta name="viewport" content="width=device-width">
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+  </head>
+  <body>
 
-  <%= render 'layouts/navigation' %>
-  <!-- alert : déconnexion et connexion avec succès -->
-  <%= render 'shared/message' %>
+    <%= render 'layouts/navigation' %>
+    <!-- alert : déconnexion et connexion avec succès -->
+    <%= render 'shared/message' %>
 
-<div class="container"><%= yield %></div>
+    <div class="container"><%= yield %></div>
     <br><br><br>
-<%= render 'layouts/footer' %>
-</body>
+    <%= render 'layouts/footer' %>
+  </body>
 
 </html>
