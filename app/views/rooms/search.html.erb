@@ -1,50 +1,37 @@
-<style type="text/css">
-#barre_recherche{
-  background-color: #76C7C1;
-  padding-top: 20px;
-  padding-bottom:20px;
-  border-radius: 7px;
-
-}
-#resultat_annonce{
-  border-radius: 5px;
-}
-</style>
-    <div class="row">
-        <div class="col-md-3" id="barre_recherche">
-          <table class="resultats" >
-            <%= search_form_for @q do |f| %>
-            <%= f.label :school_cont, "Nom de l'école" %>
-            <%= f.search_field :school_cont,id:"tags", class:"form-control", value: @school_cont %>
-            <br>
-            <%= f.label :price_gteq, "Prix minimum" %>
-            <%= f.text_field :price_gteq,  class:"form-control"%>
-            <%= f.label :price_lteq, "Prix maximum" %>
-            <%= f.text_field :price_lteq,  class:"form-control"%>
-            <br>
-            <%= f.label :nb_place_eq, "Nombre de places" %>
-            <%= f.search_field :nb_place_eq, prompt: "Nombre de places",  class:"form-control" %>
-            <br>
-            <%= f.submit "Rechercher",  class: "btn btn-primary"%>
-            <% end %>
-          </table>
+<div class="row">
+  <div class="col-md-3" id="barre_recherche">
+    <table class="resultats">
+      <%= search_form_for @q do |f| %>
+      <%= f.label :school_cont, "Nom de l'école" %>
+      <%= f.search_field :school_cont,id:"tags", class:"form-control", value: @school_cont %>
+      <br>
+      <%= f.label :price_gteq, "Prix minimum" %>
+      <%= f.text_field :price_gteq,  class:"form-control"%>
+      <%= f.label :price_lteq, "Prix maximum" %>
+      <%= f.text_field :price_lteq,  class:"form-control"%>
+      <br>
+      <%= f.label :nb_place_eq, "Nombre de places" %>
+      <%= f.search_field :nb_place_eq, prompt: "Nombre de places",  class:"form-control" %>
+      <br>
+      <%= f.submit "Rechercher",  class: "btn btn-primary"%>
+      <% end %>
+    </table>
+  </div>
+  <div id="container_annonces">
+  <% @rooms.each do |room| %>
+    <div class="col-md-4">
+      <div class="panel panel-default" id="resultat_annonces">
+        <div class="panel-heading preview" id="image_annonces">
+          <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
         </div>
-        <% @rooms.each do |room| %>
-        <div class="col-md-4">
-          <div class="panel panel-default" id="resultat_annonce">
-            <div class="panel-heading preview">
-              <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
-            </div>
-            <div class="panel-body">
-              <%= link_to room.price, room_path(room) %>
-              € -
-              <%= link_to room.listing_name, room_path(room) %>
-            </b>
-            <br><%= link_to room.home_type, room_path(room) %>
-            -
-            <%= link_to room.room_type, room_path(room) %></p>
+        <div class="panel-body text-center" id="tire_annonces">
+          <%= link_to room.listing_name, room_path(room) %>
         </div>
       </div>
+      <br>
+      <br>
+      <br>
     </div>
     <% end %>
   </div>
+</div>

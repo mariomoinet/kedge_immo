@@ -122,8 +122,6 @@ h6 {
   background: #76C7C1;
 }
 
-
-
 .btn-primary.btn {
   border: 1px solid #ff5a5f;
   border-radius: 2px;
@@ -385,71 +383,120 @@ input[type="checkbox"]:checked:before {
 .navbar-default .navbar-nav > li > a {
   color: white;
 }
+
 .navbar-nav > li > .dropdown-menu {
-    margin-top: 0;
-    border-top-right-radius: 0;
-    border-top-left-radius: 0;
-    background-color: #FF0050;
+  margin-top: 0;
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  background-color: #FF0050;
 }
 
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: rgb(228, 228, 228);
-    background-color: transparent;
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+  color: rgb(228, 228, 228);
+  background-color: transparent;
 }
+
 .panel-default .panel-heading {
-    color:white;
-    background-color: #76C7C1;
-    font-size: 18px;
-    font-weight: bold;
-    font-weight: 400;
-}
-.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-    background-color: #FF0050;
-    color: white;
+  color: white;
+  background-color: #76C7C1;
+  font-size: 18px;
+  font-weight: bold;
+  font-weight: 400;
 }
 
-.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
-    text-decoration: none;
-    color: white;
-    background-color: #76C7C1;
-    margin-right:5px ;
-    margin-left:5px ;
-    border-radius: 5px;
-  }
-
-.dropdown-menu > li > a{
-  color:white;
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-default .navbar-nav > .open > a:hover {
+  background-color: #FF0050;
+  color: white;
 }
-.navbar-text > a{
+
+.dropdown-menu > li > a:focus,
+.dropdown-menu > li > a:hover {
+  text-decoration: none;
+  color: white;
+  background-color: #76C7C1;
+  margin-right: 5px;
+  margin-left: 5px;
+  border-radius: 5px;
+}
+
+.dropdown-menu > li > a {
+  color: white;
+}
+
+.navbar-text > a {
   color: white;
   font-family: 'Open Sans', sans-serif;
 }
-.navbar-brand{
-  margin-bottom:30px;
 
+.navbar-brand {
+  margin-bottom: 30px;
 }
-
 
 .navbar-right {
-    padding-top: 15px;
+  padding-top: 15px;
 }
-#identifiant{
+
+#identifiant {
   padding-top: 12px;
 }
 /* HOMEPAGE CSS*/
-
-#homepage{
+#homepage {
   background-image: image-url('loft.jpg');
   background-size: cover;
-  background-position: bottom;}
+  background-position: bottom;
+}
 
-  #homepageback{
-    padding:10px 10px 30px 10px;
-    background-color: rgba(0, 0, 0, 0.45);
-    border-radius: 5px;
-  }
-.homepagefont{
+#homepageback {
+  padding: 10px 10px 30px;
+  background-color: rgba(0, 0, 0, 0.45);
+  border-radius: 5px;
+}
+
+.homepagefont {
   color: white;
-  font-weight:600;
-  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+#titrehomepage {
+  font-family: 'Paytone One', sans-serif;
+  color: white;
+  color: #55CEC1;
+  font-weight: 600;
+}
+
+
+
+
+.panel-body > a {
+  color: white;
+}
+#barre_recherche{
+  background-color: #76C7C1;
+  padding-top: 20px;
+  padding-bottom:20px;
+  border-radius: 7px;
+}
+#container_annonces{
+display: flex;
+flex-wrap: wrap;
+}
+
+
+#resultat_annonces {
+  height: 200px;
+  flex: 1;
+}
+
+#image_annonces{
+  display: flex;
+  height: 100%;
+  weight: 100%;
+}
+#tire_annonces{
+  background-color: #FF0050;
+  border-radius: 0px 0px 5px 5px;
 }

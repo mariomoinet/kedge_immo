@@ -160,7 +160,7 @@
                 <i class="fa fa-car" aria-hidden="true"></i>
                 Voiture</li>
             </ul>
-          </div>
+          </div> 
 
           <div class="col-md-6">
             <ul class="equipments">
@@ -247,26 +247,5 @@
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBe5rEz5JLIUL5UWgRR6zbSlvM0aYkdf4k&callback=initMap"></script>
       </div>
     </div>
-    <!-- Logements à proximité -->
-    <h3>A proximité...</h3>
-    <div class="row">
-      <% for room in @room.nearbys(2).limit(3) %>
-      <!-- situé à 2 miles environ 3 km et limité à 3 annonces -->
-      <div class="col-md-4">
-        <div class="panel panel-default">
-          <div class="panel-heading preview">
-            <%= image_tag room.photos[0].image.url(:medium) if room.photos.length > 0 %>
-          </div>
-          <div class="panel-body">
-            <%= link_to room.listing_name, room %><br>
-            (à
-            <%= (room.distance*1.6).round(2) %>
-            km)
-          </div>
-        </div>
-      </div>
-      <% end %>
-    </div>
-
   </div>
 </div>
