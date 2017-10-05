@@ -34,4 +34,7 @@
     </div>
     <% end %>
   </div>
+  <div class="col-md-offset-5 col-md-6  col-md-offset-2">
+    <%= will_paginate @room, renderer: BootstrapPagination::Rails %>
+  </div>
 </div>

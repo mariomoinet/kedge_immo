@@ -34,6 +34,10 @@ gem 'devise-i18n'
 # pour les images
 gem 'paperclip'
 
+#ajouter des pages
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
+
 # toaster-rails
 gem 'toastr-rails'
 

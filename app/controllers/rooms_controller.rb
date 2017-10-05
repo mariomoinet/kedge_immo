@@ -61,6 +61,7 @@ end
 if params[:q].present?
 @school_cont = params[:q][:school_cont]
 @rooms = @q.result
+@rooms = Room.paginate(:page => params[:page], per_page: 6)
 render 'search'
 end
   end
