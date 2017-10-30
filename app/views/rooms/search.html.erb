@@ -5,20 +5,32 @@
       <%= f.label :school_cont, "Nom de l'école" %>
       <%= f.search_field :school_cont,id:"tags", class:"form-control", value: @school_cont %>
       <br>
-      <%= f.label :price_gteq, "Prix minimum" %>
-      <%= f.text_field :price_gteq,  class:"form-control"%>
       <%= f.label :price_lteq, "Prix maximum" %>
       <%= f.text_field :price_lteq,  class:"form-control"%>
       <br>
       <%= f.label :nb_place_eq, "Nombre de places" %>
-      <%= f.search_field :nb_place_eq, prompt: "Nombre de places",  class:"form-control" %>
+      <%= f.search_field :nb_place_gteq, class:"form-control" %>
+      <br>
+      <%= f.label :taille_lteq, "Taille minimum" %>
+      <%= f.text_field :taille_gteq,  class:"form-control"%>
+      <br>
+      <%= f.label :sexe_cont, "Type de colocataire" %>
+      <%= f.select :sexe_cont, [[" "," "],["Homme","Homme"], ["Femme","Femme"], ["Indifférent","Indifférent"]],  id: "sexe", class: "form-control" %>
+      <br>
+      <br>
+      <%= f.label :bail_cont, "Type de Bail" %>
+      <%= f.select :bail_cont, [[" "," "],["Bail unique","Bail unique"], ["Bail par colocataire","Bail par colocataire"]],  id: "bail",class: "form-control" %>
+      <br>
       <br>
       <%= f.submit "Rechercher",  class: "btn btn-primary"%>
       <% end %>
+
     </table>
   </div>
+  <br><br>
+
   <div id="container_annonces">
-  <% @rooms.each do |room| %>
+    <% @rooms.each do |room| %>
     <div class="col-md-4">
       <div class="panel panel-default" id="resultat_annonces">
         <div class="panel-heading preview" id="image_annonces">
@@ -34,7 +46,5 @@
     </div>
     <% end %>
   </div>
-  <div class="col-md-offset-5 col-md-6  col-md-offset-2">
-    <%= will_paginate @room, renderer: BootstrapPagination::Rails %>
-  </div>
+  <div class="col-md-offset-5 col-md-6  col-md-offset-2"></div>
 </div>
