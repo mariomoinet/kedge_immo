@@ -4,11 +4,13 @@ $( function() {
     "KEDGE MARSEILLE",
     "KEDGE BORDEAUX",
     "KEDGE PARIS",
+    "KEDGE TOULON",
+    "KEDGE SUZHOU"
   ];
   $( "#tags" ).autocomplete({
     source: availableTags
   });
-  $("#tags").attr("placeholder", "Ton école");
+  $("#tags").attr("placeholder", "Ton campus");
   $("#tags").blur(function(){
     val = $("#tags").val();
     if (availableTags.includes(val) == false ){

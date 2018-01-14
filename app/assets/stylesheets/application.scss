@@ -468,48 +468,50 @@ input[type="checkbox"]:checked:before {
   font-weight: 600;
 }
 
-
-
-
 .panel-body > a {
   color: white;
 }
-#barre_recherche{
+
+#barre_recherche {
   background-color: #76C7C1;
   padding-top: 20px;
-  padding-bottom:20px;
+  padding-bottom: 20px;
   border-radius: 7px;
 }
-#container_annonces{
-display: flex;
-flex-wrap: wrap;
-}
 
+#container_annonces {
+  display: flex;
+  flex-wrap: wrap;
+}
 
 #resultat_annonces {
   height: 200px;
   flex: 1;
 }
 
-#image_annonces{
+#image_annonces {
   display: flex;
   height: 100%;
   weight: 100%;
 }
-#tire_annonces{
+
+#tire_annonces {
   background-color: #FF0050;
-  border-radius: 0px 0px 5px 5px;
+  border-radius: 0 0 5px 5px;
 }
-#connection_pour_l_annonce{
-  color:#76C7C1;
-  font-weight:bold;
+
+#connection_pour_l_annonce {
+  color: #76C7C1;
+  font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
 }
-.item.active > img{
+
+.item.active > img {
   width: 810px;
   height: 510px;
 }
-#carousel-container{
-height: 600px;
+
+#carousel-container {
+  height: 600px;
 }
