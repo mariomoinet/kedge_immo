@@ -1,19 +1,28 @@
 <body id="homepage">
-  <div class="row" >
-  <div class="col-md-offset-3 col-md-6 col-md-offset-3 text-center"id="homepageback">
-  <h2 id="titrehomepage">Kedge Immo</h2>
   <br>
-  <p class="homepagefont">
-    Le moyen le plus efficace pour trouver une colocation de Kedgeur ou ton studio !</p>
-    <br>
-  <div>
-    <%= search_form_for @q do |f| %>
-    <%= f.search_field :school_cont,id:"tags", class:"form-control" %>
-    <br>
-    <%= f.submit "Rechercher",  class: "btn btn-primary"%>
-    <% end %>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6 col-md-offset-3 text-center" id="homepageback">
+      <h2 id="titrehomepage">Kedge Immo</h2>
+      <br>
+      <p class="homepagefont">
+        Le moyen le plus efficace pour trouver une colocation de Kedgeur ou ton studio !</p>
+      <br>
+      <div>
+        <%= search_form_for @q do |f| %>
+        <%= f.search_field :school_cont,id:"tags", class:"form-control" %>
+        <br>
+        <%= f.submit "Rechercher", class: "btn btn-primary"%>
+      <% end %>
+    </div>
   </div>
-  </div>
-  </div>
-  <%= render 'shared/listecole' %>
+</div>
+<%= render 'shared/listecole' %>
 </body>
