@@ -1,22 +1,21 @@
 <script>
-$( function() {
-  var availableTags = [
-    "KEDGE MARSEILLE",
-    "KEDGE BORDEAUX",
-    "KEDGE PARIS",
-    "KEDGE TOULON",
-    "KEDGE SUZHOU"
-  ];
-  $( "#tags" ).autocomplete({
-    source: availableTags
-  });
-  $("#tags").attr("placeholder", "Ton campus");
-  $("#tags").blur(function(){
-    val = $("#tags").val();
-    if (availableTags.includes(val) == false ){
-      $("#tags").val("");
-    }
-
-  });
-} );
+  $( function() {
+    var availableTags = [
+      "KEDGE MARSEILLE",
+      "KEDGE BORDEAUX",
+      "KEDGE PARIS",
+      "KEDGE TOULON",
+      "KEDGE SUZHOU"
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+    $("#tags").attr("placeholder", "Ton campus");
+    $("#tags").blur(function(){
+      val = $("#tags").val();
+      if (availableTags.includes(val) == false ){
+        $("#tags").val("");
+      }
+    });
+  } );
 </script>
