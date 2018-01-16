@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require sticky-kit
 //= require rails-timeago-all
 //= require turbolinks
 //= require_tree .
