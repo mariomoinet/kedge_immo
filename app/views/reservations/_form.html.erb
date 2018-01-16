@@ -1,68 +1,69 @@
 <%= form_for([@room, @room.reservations.new]) do |f| %>
-
+<div class="row text-center">
+  <div class="col-md-11">
+    <h3><%= @room.listing_name %></h3>
+  </div>
+</div>
 <!-- affichage de prix -->
 <div class="row">
-        <div class="col-md-12 price_tag">
-            <span>€ <%= @room.price %></span>
-            <span class="pull-right">Par mois</span>
-        </div>
-    </div>
+  <div class="col-md-11 price_tag text-center">
+    <span><%= @room.price %> €</span>
+    <span>Par mois</span>
+  </div>
+</div>
 
+<div class="row">
+  <div class="col-md-12" id="connection_pour_l_annonce">
+    <% if (user_signed_in?) %>
+    <% else %>
+      <%="Veuillez-vous connecter pour afficher les coordonnés :" %>
+      <br><br>
+    <%end%>
+  </div>
+  <div class="col-md-5 text-center">
+    <br>
+    <%= image_tag avatar_url(@room.user), class:"img-circle avatar-large" %>
+    <h5><%= @room.user.fullname %></h5>
+  </div>
+<br>
+<div class="col-md-7">
+  <div class="row">
+    <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
+    <% if (user_signed_in?) %>
+      <a href="<%= @room.facebook %>" target="_blank">Lien facebook</a>
+    <% else %>
+    <%end%>
+  </div>
+  <br>
+  <div class="row">
+    <i class="fa fa-envelope-square fa-2x" aria-hidden="true"></i>
+    <% if (user_signed_in?) %>
+      <%= @room.email %>
+    <% else %>
+    <%end%>
+  </div>
+  <br>
+  <div class="row">
+    <i class="fa fa-phone-square fa-2x" aria-hidden="true"></i>
+    <% if (user_signed_in?) %>
+      <%= @room.numero %>
+    <% else %>
+    <%end%>
+  </div>
+</div>
+</div>
 
-         <div class="row">
-        <div class="col-md-12" id="connection_pour_l_annonce">
-        <% if (user_signed_in?) %>
-            <% else %>
-        <%="Veuillez-vous connecter pour afficher:" %>
-        <%end%>
-        </div>
-         </div>
-         <div class="row">
-         <div class="col-md-6">
-         <label><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook :</label>
-         </div>
-        <div class="col-md-6">
-         <label><i class="fa fa-envelope-square" aria-hidden="true"></i> Email :</label>
-         </div>
-         </div>
-         <div class="row">
-         <div class="col-md-6">
-            <% if (user_signed_in?) %>
-                <a href="<%= @room.facebook %>" target="_blank">Lien facebook</a>
-                <% else %>
-            <%end%>
-         </div>
-        <div class="col-md-6">
-            <% if (user_signed_in?) %>
-            <%= @room.email %>
-                <% else %>
-            <%end%>
-         </div>
-         </div>
-
-
-         <div class="row">
-         <div class="col-md-6">
-            <label><i class="fa fa-phone-square" aria-hidden="true"></i> Téléphone :</label>
-         </div>
-        <div class="col-md-6">
-         </div>
-         </div>
-
-        <div class="row">
-         <div class="col-md-6">
-            <% if (user_signed_in?) %>
-                <%= @room.numero %>
-                <% else %>
-            <%end%>
-         </div>
-
-         </div>
-
-
-     <%= f.hidden_field :room_id, value: @room.id %> <!-- champs caché pour renseigner l’id du logement et le prix -->
-     <%= f.hidden_field :price, value: @room.price %>
- <br>
-     <%= f.submit "Ajouter à mes favoris", class: "btn btn-primary wide" %>
-
- <% end %>
+<%= f.hidden_field :room_id, value: @room.id %>
+<!-- champs caché pour renseigner l’id du logement et le prix -->
+<%= f.hidden_field :price, value: @room.price %>
+<br>
+<div class="row">
+<div class="col-md-11">
+  <%= f.submit "Ajouter à mes favoris", class: "btn btn-primary wide" %>
+  <br><br>
+  <% if current_user.present? %>
+    <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: @room.user.id), method: 'post', class: "btn btn-primary wide" %>
+  <% end %>
+<% end %>
+</div>
+</div>

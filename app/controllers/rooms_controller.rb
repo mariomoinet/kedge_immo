@@ -20,7 +20,6 @@ end
   def show
     @photos = @room.photos
   end
-
   def create
           @room = current_user.rooms.build(room_params)
       if @room.save

@@ -20,8 +20,7 @@
             <label>Genre d'habitation
               <strong style="color:#F93A56">*</strong>
             </label>
-            <%= f.select :home_type, [["Maison","Maison"], ["Appartement","Appartement"]], id: "home_type",
-                            prompt: "A sélectionner...", class: "form-control" %>
+            <%= f.select :home_type, [["Maison","Maison"], ["Appartement","Appartement"]], id: "home_type", prompt: "A sélectionner...", class: "form-control" %>
           </div>
         </div>
         <div class="col-md-4 select">
@@ -29,8 +28,7 @@
             <label>Type de chambre
               <strong style="color:#F93A56">*</strong>
             </label>
-            <%= f.select :room_type, [["Chambre privée","Chambre privée"], ["Chambre partagée","Chambre partagée"]], id: "room_type",
-                            prompt: "A sélectionner...", class: "form-control" %>
+            <%= f.select :room_type, [["Chambre privée","Chambre privée"], ["Chambre partagée","Chambre partagée"]], id: "room_type", prompt: "A sélectionner...", class: "form-control" %>
           </div>
         </div>
         <div class="col-md-4 select">
@@ -57,9 +55,7 @@
             <label>Nombre de salle(s) de bain
               <strong style="color:#F93A56">*</strong>
             </label>
-            <%= f.select :salle_bain, [["1 salle de bain",1], ["2 salles de bain",2],
-                            ["3 salles de bain", 3], ["4 salles de bain ou plus",4]],
-                            prompt: "Sélectionner le nombre", class: "form-control" %>
+            <%= f.select :salle_bain, [["1 salle de bain",1], ["2 salles de bain",2], ["3 salles de bain", 3], ["4 salles de bain ou plus",4]], prompt: "Sélectionner le nombre", class: "form-control" %>
           </div>
         </div>
         <div class="col-md-4 select">
@@ -67,8 +63,7 @@
             <label>Colocataire recherché(e)
               <strong style="color:#F93A56">*</strong>
             </label>
-            <%= f.select :sexe, [["Homme","Homme"], ["Femme","Femme"], ["Indifférent","Indifférent"]],  id: "sexe",
-                            prompt: "A sélectionner...", class: "form-control" %>
+            <%= f.select :sexe, [["Homme","Homme"], ["Femme","Femme"], ["Indifférent","Indifférent"]], id: "sexe", prompt: "A sélectionner...", class: "form-control" %>
           </div>
         </div>
       </div>
@@ -78,8 +73,7 @@
             <label>Type de bail
               <strong style="color:#F93A56">*</strong>
             </label>
-            <%= f.select :bail, [["Bail unique","Bail unique"], ["Bail par colocataire","Bail par colocataire"]],  id: "bail",
-                            prompt: "A sélectionner...", class: "form-control" %>
+            <%= f.select :bail, [["Bail unique","Bail unique"], ["Bail par colocataire","Bail par colocataire"]], id: "bail", prompt: "A sélectionner...", class: "form-control" %>
           </div>
         </div>
       </div>
@@ -121,7 +115,7 @@
             <label>Ecole
               <strong style="color:#F93A56">*</strong>
             </label>
-            <%= f.text_field :school, autofocus: true, id:"tags", placeholder: "ex: HEC", class:"form-control"  %>
+            <%= f.text_field :school, autofocus: true, id:"tags", placeholder: "ex: HEC", class:"form-control" %>
           </div>
         </div>
       </div>
@@ -154,8 +148,7 @@
       <div class="row">
         <div class="form-group">
           <label>Résumé</label>
-          <%= f.text_area :summary, rows:4, placeholder: "Décrivez votre colocation",
-                        class: "form-control" %>
+          <%= f.text_area :summary, rows:4, placeholder: "Décrivez votre colocation", class: "form-control" %>
         </div>
       </div>
       <div class="row">
@@ -163,9 +156,10 @@
           <label>Adresse
             <strong style="color:#F93A56">*</strong>
           </label>
-          <%= f.text_field :address, placeholder: "Où est situé votre logement ?", class: "form-control" %>
+          <%= f.text_field :address, placeholder: "Où est situé votre logement ?", class: "form-control", id:"user_input_autocomplete_address"%>
         </div>
       </div>
+
       <div class="row">
         <p>
           <font size="3">Equipements</font>
@@ -203,7 +197,7 @@
           </div>
           <div class="form-group">
             <%= f.check_box :voiture %>
-            Voiture
+            Garage
           </div>
         </div>
         <div class="col-md-4">
@@ -251,19 +245,18 @@
         </div>
       </div>
       <div class="actions">
-        <%= f.submit "Je valide mon annonce",  class: "btn btn-primary"%>
+        <%= f.submit "Je valide mon annonce", class: "btn btn-primary"%>
 
         <!-- poser la question -->
         <% if controller.action_name == 'edit' && Rails.env.development? %>
 
-        <%= link_to "Je supprime mon annonce", room_path(@room), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
+          <%= link_to "Je supprime mon annonce", room_path(@room), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
         <% end %>
       </div>
       <br>
-      <% end %>
-    </div>
-
+    <% end %>
   </div>
+</div>
 </div>
 </div>
 <%= render 'shared/listecole' %>
@@ -271,36 +264,39 @@
 
 $(function () {
 
-  $('#room_start_date').datepicker({
+$('#room_start_date').datepicker({
 
-    dateFormat: 'dd-mm-yy',
+  dateFormat: 'dd-mm-yy',
 
-    monthNames: [
-      'Janvier',
-      'Février',
-      'Mars',
-      'Avril',
-      'Mai',
-      'Juin',
-      'Juillet',
-      'Août',
-      'Septembre',
-      'Octobre',
-      'Novembre',
-      'Décembre'
-    ],
+  monthNames: [
+    'Janvier',
+    'Février',
+    'Mars',
+    'Avril',
+    'Mai',
+    'Juin',
+    'Juillet',
+    'Août',
+    'Septembre',
+    'Octobre',
+    'Novembre',
+    'Décembre'
+  ],
 
-    dayNamesMin: [
-      'D',
-      'L',
-      'M',
-      'M',
-      'J',
-      'V',
-      'S'
-    ]
+  dayNamesMin: [
+    'D',
+    'L',
+    'M',
+    'M',
+    'J',
+    'V',
+    'S'
+  ]
 
-  });
+});
 
 });
 </script>
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXLCXJ7om6pxe4hAeOUpGAPARZ-6V2a48"></script>
+<script type="text/javascript" src="autocomplete.js"></script>
