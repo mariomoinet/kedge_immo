@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get 'rooms/index'
 
+  get 'rooms/search'
+
   get 'rooms/annonces'
 
   get '/your_trips' => 'reservations#your_trips'

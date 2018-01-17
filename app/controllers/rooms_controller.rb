@@ -11,7 +11,7 @@ class RoomsController < ApplicationController
     @room = Room.find(params[:id])
     @room.destroy
     redirect_to root_path, :notice => "Votre annonces à bien été supprimée"
-end
+    end
 
   def edit
     @photos = @room.photos
@@ -60,9 +60,14 @@ end
     if params[:q].present?
       @school_cont = params[:q][:school_cont]
       @rooms = @q.result
+      @rooms = @q.result.page(params[:page]).per(6)
     render 'search'
     end
   end
+
+def search
+@room= Room.find_by_sub_domain params[:id]
+end
 
 
 

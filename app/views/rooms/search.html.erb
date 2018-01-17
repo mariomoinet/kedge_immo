@@ -1,4 +1,7 @@
-<div class="row">
+<body id="page_recherche">
+
+
+
   <div class="col-md-3" id="barre_recherche">
     <table class="resultats">
       <%= search_form_for @q do |f| %>
@@ -19,16 +22,12 @@
       <br>
       <br>
       <%= f.label :bail_cont, "Type de Bail" %>
-      <%= f.select :bail_cont, [[" "," "],["Bail unique","Bail unique"], ["Bail par colocataire","Bail par colocataire"]], id: "bail",class: "form-control" %>
-      <br>
-      <br>
+      <%= f.select :bail_cont, [[" "," "],["Bail individuel","Bail individuel"], ["Bail solidaire","Bail solidaire"]], id: "bail",class: "form-control" %>
+      <br><br>
       <%= f.submit "Rechercher", class: "btn btn-primary"%>
     <% end %>
-
   </table>
-</div>
-<br><br>
-
+  </div>
 <div id="container_annonces">
   <% @rooms.each do |room| %>
     <div class="col-md-4">
@@ -41,12 +40,11 @@
       <div class="panel-body text-center" id="tire_annonces">
         <%= link_to room.listing_name, room_path(room) %>
       </div>
-    </div>
-    <br>
-    <br>
-    <br>
+    </div><br><br><br>
   </div>
 <% end %>
 </div>
+<div class="col-md-offset-6">
+  <%= paginate @rooms, :theme => 'twitter-bootstrap-3' %>
 </div>
-</div>
+</body>

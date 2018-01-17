@@ -34,16 +34,11 @@ gem 'devise-i18n'
 # pour les images
 gem 'paperclip'
 
-#ajouter des pages
-gem 'will_paginate', '~> 3.1.0'
-gem 'will_paginate-bootstrap'
-
 # toaster-rails
 gem 'toastr-rails'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-
 # Use jquery as the JavaScript library
 gem 'jquery-ui-rails'
 
@@ -82,6 +77,10 @@ gem 'paperclip-cloudinary'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+
+# kamari pour la pagination
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

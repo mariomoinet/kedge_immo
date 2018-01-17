@@ -61,11 +61,14 @@ html {
 .avatar-full {
   width: 100%;
 }
+#page_recherche{
+  background-color: white;
+}
 /* show users */
 body {
   font-family: 'Open Sans', sans-serif;
   overflow-x: hidden;
-  background-color: white;
+  background-color: rgba(#716c6c, 0.2);
 }
 
 p {
@@ -525,4 +528,25 @@ input[type="checkbox"]:checked:before {
     width: 845px;
     height: 500px;
     line-height: 1;
+}
+/* pagination */
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    line-height: 1.428571429;
+    text-decoration: none;
+    color: #EA3454;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-left: -1px;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    background-color: #89C5C1;
+    border-color: #89C5C1;
+    cursor: default;
 }
