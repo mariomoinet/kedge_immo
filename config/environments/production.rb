@@ -3,7 +3,7 @@ Rails.application.configure do
 Paperclip::Attachment.default_options.merge!({
 
  :storage => :cloudinary,
-
+ :cloudinary_credentials => Rails.root.join("config/cloudinary.yml"),
  :path => ':id/:style/:filename'
 
  })

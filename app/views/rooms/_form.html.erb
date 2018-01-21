@@ -261,13 +261,9 @@
 </div>
 <%= render 'shared/listecole' %>
 <script>
-
 $(function () {
-
 $('#room_start_date').datepicker({
-
   dateFormat: 'dd-mm-yy',
-
   monthNames: [
     'Janvier',
     'Février',
@@ -282,7 +278,6 @@ $('#room_start_date').datepicker({
     'Novembre',
     'Décembre'
   ],
-
   dayNamesMin: [
     'D',
     'L',
@@ -292,12 +287,10 @@ $('#room_start_date').datepicker({
     'V',
     'S'
   ]
-
 });
-
 });
 </script>
-<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&amp;key=AIzaSyC5Uo_AuPvUZHGBUX-YiA5-GOZhq8HZfh8 "></script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC5Uo_AuPvUZHGBUX-YiA5-GOZhq8HZfh8 "></script>
 <script type="text/javascript">
 $("#user_input_autocomplete_address").geocomplete();
 </script>

@@ -1,14 +1,18 @@
-production:
-  cloud_name: "a recuperer sur heroku"
-
-  
-  api_key: <%= ENV["CLOUDINARY_API_KEY"] %>
-
-  
-  api_secret: <%= ENV["CLOUDINARY_API_SECRET"] %>
-
-  
+development:
+  cloud_name: dmwhequ9x
+  api_key: '438619269425141'
+  api_secret: BoQlq6niBl5OAmAa1a3cdkewp6I
   enhance_image_tag: true
-
-  
-  static_image_support: true  
+  static_image_support: false
+production:
+  cloud_name: dmwhequ9x
+  api_key: '438619269425141'
+  api_secret: BoQlq6niBl5OAmAa1a3cdkewp6I
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dmwhequ9x
+  api_key: '438619269425141'
+  api_secret: BoQlq6niBl5OAmAa1a3cdkewp6I
+  enhance_image_tag: true
+  static_image_support: false
