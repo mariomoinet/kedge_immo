@@ -33,6 +33,7 @@ gem 'devise-i18n'
 
 # pour les images
 gem 'paperclip'
+gem 'dropzonejs-rails'
 
 # toaster-rails
 gem 'toastr-rails'

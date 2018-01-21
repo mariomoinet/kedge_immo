@@ -14,6 +14,7 @@
  *= require_self
  *= require jquery-ui
  *= require jquery.ui.theme.css
+ *= require dropzone/dropzone
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -49,14 +50,17 @@ html {
 /* CSS pour l'avatar */
 .avatar-small {
   width: 28px;
+  height: 28px;
 }
 
 .avatar-medium {
   width: 48px;
+  height: 48px;
 }
 
 .avatar-large {
-  width: 68px;
+  width: 100px;
+  height: 120px;
 }
 
 .avatar-full {

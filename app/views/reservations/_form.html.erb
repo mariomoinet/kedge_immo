@@ -8,7 +8,7 @@
     <span>Par mois</span>
   </div>
 </div>
-
+<div class="row">
 <div class="row">
   <div class="col-md-12" id="connection_pour_l_annonce">
     <% if (user_signed_in?) %>
@@ -19,12 +19,13 @@
   </div>
   <div class="col-md-5 text-center">
     <br>
-    <%= image_tag avatar_url(@room.user), class:"img-circle avatar-large" %>
+    <%= image_tag avatar_url(@room.user), class:"avatar-large" %>
     <h5><%= @room.user.fullname %></h5>
   </div>
-<br>
+
 <div class="col-md-7">
   <div class="row">
+    <br>
     <i class="fa fa-facebook-square fa-2x" aria-hidden="true"></i>
     <% if (user_signed_in?) %>
       <a href="<%= @room.facebook %>" target="_blank">Lien facebook</a>
@@ -49,7 +50,7 @@
   </div>
 </div>
 </div>
-
+</div>
 <%= f.hidden_field :room_id, value: @room.id %>
 <!-- champs caché pour renseigner l’id du logement et le prix -->
 <%= f.hidden_field :price, value: @room.price %>
