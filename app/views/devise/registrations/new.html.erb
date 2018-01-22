@@ -1,5 +1,6 @@
-<div class="panel panel-default col-md-offset-2 col-md-8 col-md-offset-2">
-  <div class="panel-heading  text-center">
+<div class="col-md-offset-2 col-md-8 col-md-offset-2">
+<div class="panel panel-default ">
+  <div class="panel-heading  text-center ">
     <h2 id="inscription">Inscription</h2>
     <br>
   </div>
@@ -24,11 +25,16 @@
           <div class="form-group">
             <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Créer un mot de passe " %>
           </div>
-        <div class="actions col-md-offset-2 col-md-7 ">
+        <div class="actions col-md-7 ">
          <br>
             <%= f.submit "Enregistrer", class: "btn btn-primary" %>
         </div>
+        <div class="col-md-5">
+            <br>
+        <%= link_to "Déja membre ? Connectez-vous", new_user_session_path , style:"font-size:13px", style:"color:#999999"%>
+        </div>
 <% end %>
+</div>
 </div>
 </div>
 </div>

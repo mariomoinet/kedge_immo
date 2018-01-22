@@ -30,7 +30,7 @@ gem 'devise'
 
 # devise traduction
 gem 'devise-i18n'
-
+gem "figaro"
 # pour les images
 gem 'paperclip'
 gem 'dropzonejs-rails'

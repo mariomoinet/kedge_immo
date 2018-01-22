@@ -13,7 +13,7 @@
   <div class="col-md-12" id="connection_pour_l_annonce">
     <% if (user_signed_in?) %>
     <% else %>
-      <%="Veuillez-vous connecter pour afficher les coordonnés :" %>
+      <%=link_to "Veuillez-vous connecter pour afficher les coordonnés :", new_user_registration_path %>
       <br><br>
     <%end%>
   </div>
@@ -51,9 +51,6 @@
 </div>
 </div>
 </div>
-<%= f.hidden_field :room_id, value: @room.id %>
-<!-- champs caché pour renseigner l’id du logement et le prix -->
-<%= f.hidden_field :price, value: @room.price %>
 <br>
 <div class="row">
 <div class="col-md-11">
