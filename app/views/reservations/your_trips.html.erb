@@ -9,24 +9,25 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         Mes favoris</div>
-      <div class="panel-body">
+      <div id="container_annonces">
+
         <% @trips.order("id DESC").each do |trip| %>
-          <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
+          <div class="col-md-4">
+            <br>
+            <div class="panel panel-default" id="resultat_annonces">
               <%= link_to room_path(trip.room) do %>
-              <%= image_tag trip.room.photos[0].image.url(:thumb) if trip.room.photos.length > 0 %>
-              <% end %>
-          </div>
-          <div class="col-md-2">
-            <%= link_to user_path(trip.room.user) do %>
-            <%= image_tag avatar_url(trip.room.user), class:"img-circle avatar-medium" %>
-          <% end %>
+              <div class="panel-heading preview" id="image_annonces">
+                <%= image_tag trip.room.photos[0].image.url(:thumb) if trip.room.photos.length > 0 %>
+              </div>
+            <% end %>
+            <div class="panel-body text-center" id="tire_annonces">
+              <%= link_to trip.room.listing_name, room_path(trip.room) %>
+            </div>
+          </div><br><br>
         </div>
-      </div>
-      <hr>
-    <% end %>
+      <% end %>
+    </div>
+
   </div>
-</div>
 </div>
 </div>

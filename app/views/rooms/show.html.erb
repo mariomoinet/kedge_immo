@@ -191,8 +191,6 @@
         <br>
         <p>Emplacement</p>
         <br>
-        <%= @room.address %>
-        <br>
       </div>
     </div>
     <div class="row">
@@ -222,7 +220,7 @@
             var marker = new google.maps.Marker({position: uluru, map: map});
           }
         </script>
-        <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Uo_AuPvUZHGBUX-YiA5-GOZhq8HZfh8&callback=initMap"></script>
+        <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_api_maps']%>&callback=initMap"></script>
       </div>
     </div>
   </div>
