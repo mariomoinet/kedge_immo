@@ -207,7 +207,7 @@
           }
         </style>
 
-        <script>
+        <script type="text/javascript">
           function initMap() {
             var uluru = {
               lat: <%= @room.latitude %>,
@@ -220,7 +220,7 @@
             var marker = new google.maps.Marker({position: uluru, map: map});
           }
         </script>
-        <script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_api_maps']%>&callback=initMap"></script>
+
       </div>
     </div>
   </div>
@@ -230,6 +230,11 @@
   </div>
 </div>
 </div>
+
+
+
+<script async="async" defer="defer" src="https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_maps']%>&callback=initMap"></script>
+
 <script type="text/javascript">
 $("#sidebar").stick_in_parent();
 </script>

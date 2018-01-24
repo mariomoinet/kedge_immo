@@ -2,17 +2,17 @@
 <html>
   <head>
     <title>Kedge Immo</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<link href="https://fonts.googleapis.com/css?family=Fredoka+One|Hammersmith+One|Open+Sans:800i|Paytone+One" rel="stylesheet">    <meta name="viewport" content="width=device-width">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One|Hammersmith+One|Open+Sans:800i|Paytone+One" rel="stylesheet">
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['google_api_maps']%>"></script>
+    <meta name="viewport" content="width=device-width">
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
-    <script type="text/javascript"
-  src="https://maps.googleapis.com/maps/api/js?libraries=places&key=<%= ENV['google_api_maps']%>">
-</script>
 
-<script src="/assets/jquery.geocomplete.js"></script>
+
+    <script src="/assets/jquery.geocomplete.js"></script>
 
   </head>
   <body>

@@ -1,32 +1,7 @@
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand">
-        <%=link_to(image_tag("logokedgeimmonav.png"),root_path)%>
-      </a>
-    </div>
-    <div id="navbar" class="navbar-collapse collapse right">
-      <ul class="nav navbar-nav navbar-right">
-
-        <li>
-          <%= link_to new_room_path do %>
-          <i class="fa fa-home fa-lg"></i>
-          Propose un logement
-        <% end %>
-      </li>
-
-      <% if (!user_signed_in?) %>
-        <!-- lien vers l'inscription s'il n'est pas inscrit ni connecté -->
-
-        <li><%= link_to 'Inscription', new_user_registration_path %></li>
-        <li><%= link_to 'Connexion', new_user_session_path %></li>
-
+  <div class="container" style="padding:5px 0px 5px 0px">
+      <a class="navbar-brand  pull-left"><%=link_to(image_tag("logokedgeimmonav.png"),root_path)%></a>
+      <ul class="nav navbar-nav pull-right" style="margin-top:20px"><li><%= link_to new_room_path do %><i class="fa fa-home fa-lg" style="margin-right:8px"></i>Propose un logement<% end %></li><% if (!user_signed_in?) %><li><%= link_to 'Inscription', new_user_registration_path %></li><li><%= link_to 'Connexion', new_user_session_path %></li>
       <% else %>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" id="identifiant">
@@ -49,9 +24,8 @@
           </ul>
         </li>
       <% end %>
-
     </ul>
-  </div>
+
   <!--/.nav-collapse -->
 </div>
 </nav>
