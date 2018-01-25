@@ -1,5 +1,3 @@
-require 'pry-byebug'
-
 class RoomsController < ApplicationController
 
   before_action :set_room, only: [:show, :edit, :update]
