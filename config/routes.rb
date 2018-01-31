@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   get 'rooms/search'
 
+  get 'rooms/usershow'
+
   get 'rooms/annonces'
+
+
 
   get '/your_trips' => 'reservations#your_trips'
 

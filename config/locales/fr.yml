@@ -1,7 +1,7 @@
-en:
+fr:
   rooms:
     index:
-      title:              "the best way "
+      title:              "Le moyen le plus efficace pour trouver une colocation de Kedgeur ou ton studio ! "
   activerecord:
     errors:
       models:

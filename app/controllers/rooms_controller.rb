@@ -1,12 +1,13 @@
 class RoomsController < ApplicationController
 
-  before_action :set_room, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:show, :index]
+  before_action :set_room, only: [:show, :edit, :update, :usershow]
+  before_action :authenticate_user!, except: [:show, :index, :usershow]
   before_action :require_same_user, only: [:edit, :update]
 
   def new
      @room = current_user.rooms.build
   end
+
   def destroy
     @room = Room.find(params[:id])
     @room.destroy
@@ -20,6 +21,13 @@ class RoomsController < ApplicationController
   def show
     @photos = @room.photos
   end
+
+
+  def usershow
+
+  end
+
+
   def create
           @room = current_user.rooms.build(room_params)
       if @room.save
