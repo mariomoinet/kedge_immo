@@ -37,7 +37,7 @@ class RoomsController < ApplicationController
           end
       end
        @photos = @room.photos
-            redirect_to room_path(@room), notice:"Votre logement a été ajouté"
+            redirect_to rooms_edit_path(id: @room), notice:"Votre logement a été ajouté"
       else
            render :new # s’il y a une erreur, redirige vers la page de création new
 
@@ -45,18 +45,7 @@ class RoomsController < ApplicationController
     end
 
       def update
-        if @room.update(room_params)
-            if params[:images]
-                params[:images].each do |i|
-                @room.photos.create(image: i)
-            end
-       end
-            @photos = @room.photos
-            redirect_to edit_room_path(@room), notice:"Modification enregistrée..."
-
-        else
-            render :edit
-    end
+  @photos = @room.photos
     end
 
   def annonces
@@ -78,8 +67,6 @@ def search
 end
 
 
-
-
   private
 
       def set_room
@@ -88,7 +75,7 @@ end
 
       def room_params
 
-          params.require(:room).permit(:school, :address, :sexe, :room_type, :home_type, :nb_place, :nb_coloc, :price, :start_date, :bail, :apl, :tv, :wifi, :ascenceur, :terasse, :lave_linge, :four, :piscine, :voiture, :seche_linge, :machine_laver, :taille, :salle_bain, :description, :fumeur, :sportif, :fetard, :chill, :worker, :numero, :email, :facebook, :summary, :listing_name, :active)
+          params.require(:room).permit(:school, :address, :sexe, :room_type, :home_type, :nb_place, :nb_coloc, :price, :start_date, :bail, :apl, :tv, :wifi, :ascenceur, :terasse, :lave_linge, :four, :piscine, :voiture, :seche_linge, :machine_laver, :taille, :salle_bain, :description, :fumeur, :sportif, :fetard, :chill, :worker, :numero, :email, :facebook, :summary, :listing_name, :active, :charges, :age, :langue, :francais, :anglais, :chinois, :allemand, :italien, :espagnol, :arabe, :japonais, :russe, :indien, :caution)
       end
 
       def require_same_user

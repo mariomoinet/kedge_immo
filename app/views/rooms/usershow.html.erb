@@ -8,48 +8,79 @@
       <% end %>
     </div>
     <div class="col-md-8 text-center">
-      <h3> Le coloc idéal pour <%= @room.listing_name %></h3>
+      <h3>
+        Le coloc idéal pour
+        <%= @room.listing_name %></h3>
     </div>
   </div>
 </div>
 <div class="panel-body">
-<div class="col-md-7">
-  <div class="row">
-    <br>
-    <p>Le coloc recherché</p>
-    <br>
-    <%= @room.summary%>
-  </div>
-  <div class="row">
-    <br>
+  <div class="col-md-7">
+    <div class="row">
+      <br>
+      <p>Le coloc recherché</p>
+      <br>
+      <%= @room.summary%>
+    </div>
 
-    <div class="col-md-5" style="background-color: red">
-<br><br><br><br><br><br><br><br>
+    <div class="row">
+      <br><br>
+      <div class="col-md-12">
+        <div class="col-md-3">
+          <i class="fa fa-comment fa-2x"></i>
+          <%= @room.langue %>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-user fa-2x"></i>
+          <%= @room.age %>
+          ans
+        </div>
+        <div class="col-md-3">
+          <%= image_tag "cig.jpg", alt: "cig_icone", width: 28, height: 28 %>
+          <%= @room.fumeur %>
+        </div>
+        <div class="col-md-3">
+          <i class="fa fa-transgender fa-2x"></i>
+          <%= @room.fumeur %>
+        </div>
+      </div>
+      <br><br>
     </div>
-    <div class="col-md-offset-1 col-md-5" style="background-color:blue">
-<br><br><br><br><br><br><br><br>
+    <div class="row">
+      <br>
+      <div class="col-md-5" id="fete">
+        <br><br><br><br><br>
+        <%= @room.fetard%>
+        <br><br><br><br><br>
+      </div>
+      <div class="col-md-offset-1 col-md-5" id="chill">
+        <br><br><br><br><br>
+        <%= @room.chill%>
+        <br><br><br><br><br>
+      </div>
+    </div>
+    <div class="row">
+      <br>
+
+      <div class="col-md-5" id="sport">
+        <br><br><br><br><br>
+        <%= @room.sportif%>
+        <br><br><br><br><br>
+      </div>
+      <div class="col-md-offset-1 col-md-5" id="work">
+        <br><br><br><br><br>
+        <%= @room.worker%>
+        <br><br><br><br><br>
+      </div>
     </div>
   </div>
-  <div class="row">
-    <br>
-
-    <div class="col-md-5" style="background-color: green">
-<br><br><br><br><br><br><br><br>
-    </div>
-    <div class="col-md-offset-1 col-md-5" style="background-color:pink">
-<br><br><br><br><br><br><br><br>
-    </div>
-  </div>
-</div>
-
-  <!-- Formulaire de réservation -->
   <div class="col-md-offset-1 col-md-4" id="sidebar">
     <br>
     <%= render 'reservations/form' %>
   </div>
 </div>
-</div>
 
+</div>
 
 <script type="text/javascript">
 $("#sidebar").stick_in_parent();

@@ -1,1 +1,252 @@
-<%= render 'form' %>
+<% if @room.home_type.include?('colocation') %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading col-md-12">
+      <div class="row">
+        <div class="col-md-2">
+          <%= link_to rooms_update_path(id: @room) do %>
+          <i class="fa fa-arrow-left fa-lg" aria-hidden="true" style="color:white"></i>
+        <% end %>
+      </div>
+      <div class="col-md-8 text-center">
+        Dernière étape (optionnel)
+      </div>
+      <div class="col-md-2">
+        <%= link_to room_path(@room) do %>
+        <i class="fa fa-arrow-right fa-lg pull-right" aria-hidden="true" style="color:white"></i>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="panel-body">
+
+  <%= form_for @room, html: {multipart: true} do |f| %>
+  <div class="row text-center">
+    <br><br>
+    <h3>Informations sur la colocation</h3><hr></div>
+
+  <div class="col-md-4">
+    <div class="form-group" style="padding-top:8px">
+      <label>Capacitée maximum de la colocation</label>
+      <%= f.select :nb_coloc, [["2 colocataires",2], ["3 colocataires", 3], ["4 colocataires",4], ["5 colocataires",5], ["6 colocataires",6]], prompt: "A sélectionner...", class: "form-control" %>
+    </div>
+    <div class="form-group" style="padding-top:8px">
+      <label>Le logement éligible aux APL ?</label>
+      <%= f.select :apl, [["Logement éligible",true], ["logement non éligible", false]], prompt: "A sélectionner...", class: "form-control" %>
+    </div>
+    <div class="form-group" style="padding-top:8px">
+      <label>Taille de la colocation</label>
+      <div class="input-group">
+        <%= f.text_field :taille, placeholder: "ex : 40m²", class: "form-control" %>
+        <div class="input-group-addon">m²</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="col-md-4">
+    <div class="form-group" style="padding-top:8px">
+      <label>Nombre de places disponibles</label>
+      <%= f.select :nb_place, [["1 place disponible",1], ["2 places disponibles",2], ["3 places disponibles", 3], ["4 places ou plus disponibles",4]], prompt: "Sélectionner le nombre", class: "form-control" %>
+    </div>
+    <div class="form-group" style="padding-top:8px">
+      <label>Quel est le type de bail proposé ?
+      </label>
+      <%= f.select :bail, [["Bail individuel","Bail individuel"], ["Bail solidaire","Bail solidaire"]], id: "bail",class: "form-control", prompt: "A sélectionner..." %>
+    </div>
+    <div class="form-group" style="padding-top:8px">
+      <label>Montant de la caution</label>
+      <div class="input-group">
+        <%= f.text_field :caution, placeholder: "500€", class: "form-control" %>
+        <div class="input-group-addon">€</div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4" id="Equipements_field">
+    <div class="row">
+      <div class="text-center col-md-12">
+        <font size="3">Equipements</font><hr>
+      </div>
+
+      <div class="col-md-5 col-md-offset-1">
+        <div class="form-group">
+          <%= f.check_box :wifi %>
+          Wifi
+        </div>
+        <div class="form-group">
+          <%= f.check_box :tv %>
+          Télévision
+        </div>
+        <div class="form-group">
+          <%= f.check_box :ascenceur %>
+          Ascenceur
+        </div>
+        <div class="form-group">
+          <%= f.check_box :terasse %>
+          Terrasse
+        </div>
+        <div class="form-group">
+          <%= f.check_box :machine_laver %>
+          Lave vaisselle
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <%= f.check_box :lave_linge %>
+          Lave-linge
+        </div>
+        <div class="form-group">
+          <%= f.check_box :four %>
+          Four
+        </div>
+        <div class="form-group">
+          <%= f.check_box :piscine %>
+          Piscine
+        </div>
+        <div class="form-group">
+          <%= f.check_box :voiture %>
+          Garage
+        </div>
+        <div class="form-group">
+          <%= f.check_box :seche_linge %>
+          Seche-linge
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row"></div>
+  <div class="row text-center">
+    <br>
+    <h3>L'ambiance dans la colocation</h3><hr>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-md-7">
+      <div class="form-group ">
+        <br>
+        <%= f.text_area :personnaliterdescription, rows:6, placeholder: "D'écrits l'ambiance de ta colocation, la personne que tu recherches ...", class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <label>Tu préfères</label>
+        <div class="input-group">
+          <%= f.select :sexe, [["Un colocataire","Un colocataire"], ["Une colocataire", "Une colocataire"], ["Peu importe","Peu importe"]], prompt: "A sélectionner...", class: "form-control" %>
+          <div class="input-group-addon">
+            <i class="fa fa-transgender fa-lg"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-offset-1 col-md-3" id="langues_field">
+      <div class="row text-center">
+        <br>
+        <label>Langues parlés dans la coloc</label>
+        <br>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :francais %><%= image_tag "flag-fr.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :anglais %><%= image_tag "flag-us.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :chinois %><%= image_tag "flag-cn.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :allemand %><%= image_tag "flag-de.png", width: 28, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :italien %><%= image_tag "flag-it.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :espagnol %><%= image_tag "flag-es.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :arabe %><%= image_tag "flag-ar.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :japonais %><%= image_tag "flag-jp.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :russe %><%= image_tag "flag-ru.png", width: 30, height: 28 %>
+      </div>
+      <div class="flag col-md-offset-1 col-md-5">
+        <%= f.check_box :indien %><%= image_tag "flag-in.png", width: 30, height: 28 %>
+      </div>
+    </div>
+  </div>
+
+    <br>
+    <div class="row">
+      <br>
+      <div class="form-group col-md-3">
+        <label>T'as colloc est chill ?</label>
+        <%= f.select :chill, [["A 0%","A 0%"],["A 10%","A 10%"],["A 20%","A 20%"],["A 30%","A 30%"],["A 40%","A 40%"],["A 50%","A 50%"],["A 60%","A 60%"],["A 70%","A 70%"],["A 80%","A 80%"],["A 90%","A 90%"],["A 100%","A 100%"]], prompt: "A sélectionner...",
+        class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3">
+        <label>T'as une colloc de fêtard ?</label>
+        <%= f.select :fetard, [["A 0%","A 0%"],["A 10%","A 10%"],["A 20%","A 20%"],["A 30%","A 30%"],["A 40%","A 40%"],["A 50%","A 50%"],["A 60%","A 60%"],["A 70%","A 70%"],["A 80%","A 80%"],["A 90%","A 90%"],["A 100%","A 100%"]], prompt: "A
+        sélectionner...", class: "form-control" %>
+      </div>
+      <div class="form-group col-md-offset-2 col-md-3">
+        <label>La tranche d'age que tu préfères :
+        </label>
+        <%= f.select :age, [["Peu importe","Peu importe"],["16-18","16-18"],["18-20","18-20"],["20-25","20-25"],["25-30","25-30"],["30+","30+"]], prompt: "A sélectionner...", class: "form-control" %>
+      </div>
+    </div>
+    <div class="row">
+      <br>
+      <div class="form-group col-md-3">
+        <label>T'as une colloc de bosseur ?</label>
+        <%= f.select :worker, [["A 0%","A 0%"],["A 10%","A 10%"],["A 20%","A 20%"],["A 30%","A 30%"],["A 40%","A 40%"],["A 50%","A 50%"],["A 60%","A 60%"],["A 70%","A 70%"],["A 80%","A 80%"],["A 90%","A 90%"],["A 100%","A 100%"]], prompt: "A
+        sélectionner...", class: "form-control" %>
+      </div>
+      <div class="form-group col-md-3">
+        <label>T'as une colloc de sportif ?</label>
+        <%= f.select :sportif, [["A 0%","A 0%"],["A 10%","A 10%"],["A 20%","A 20%"],["A 30%","A 30%"],["A 40%","A 40%"],["A 50%","A 50%"],["A 60%","A 60%"],["A 70%","A 70%"],["A 80%","A 80%"],["A 90%","A 90%"],["A 100%","A 100%"]], prompt: "A
+        sélectionner...", class: "form-control" %>
+      </div>
+
+      <div class="form-group col-md-offset-2 col-md-3" >
+        <label>La cigarette te déranges ?</label>
+        <%= f.select :fumeur, [["Non","oui"],["Oui","non"]], prompt: "A sélectionner...", class: "form-control" %>
+      </div>
+    </div>
+
+
+  <div class="row text-center">
+    <br>
+    <h3>Les photos te conviennes ?</h3><hr>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="form-group text-center">
+        <span class="btn  btn-file">
+          <i class="fa fa-cloud-upload fa-lg"></i>Tu peux ajouter des photos<%= file_field_tag "images[]", type: :file, multiple: true %></span></div>
+
+    </div>
+    <div class="col-md-offset-1 col-md-10 col-md-offset-1 " id="photos">
+      <%= render 'photos/list' %></div><br><br><br><br>
+  </div>
+<div class="row">
+  <hr>
+  <div class="col-md-12 text-center">
+    <div class="actions">
+
+      <%= f.submit "Je valide mon annonce", class: "btn btn-primary"%>
+    </div>
+  </div>
+</div>
+
+  <br>
+<% end %>
+</div>
+</div>
+</div>
+</div>
+
+<% else%>
+
+<%end%>

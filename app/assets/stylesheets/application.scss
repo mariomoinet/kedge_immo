@@ -557,3 +557,49 @@ input[type="checkbox"]:checked:before {
   border-color: #89C5C1;
   cursor: default;
 }
+
+
+#fete{
+  background-image: image-url('party.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
+#chill{
+  background-image: image-url('chill.jpg');
+  background-size: cover;
+  background-position: center;
+}
+#sport{
+  background-image: image-url('sport.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
+#work{
+  background-image: image-url('work.jpg');
+  background-size: cover;
+  background-position: center;
+}
+#photo_zone{
+  padding:8px;
+  border-radius: 3px;
+  border-style: solid;
+  border-width: thin;
+  background-color:  #FF0050;
+}
+#Equipements_field{
+  border: solid;
+  border-color:#CCCCCC;
+  border-radius: 2px;
+  border-width: 1px;
+  padding-top: 5px;
+}
+#langues_field{
+  border: solid;
+  border-color:#CCCCCC;
+  border-radius: 2px;
+  border-width: 1px;
+  margin-top: 18px;
+}
+.flag{
+  padding:5px;
+}

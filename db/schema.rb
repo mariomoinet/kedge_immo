@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180131151352) do
+ActiveRecord::Schema.define(version: 20180206220324) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20180131151352) do
     t.integer  "price"
     t.datetime "start_date"
     t.string   "bail"
-    t.integer  "apl"
+    t.boolean  "apl"
     t.boolean  "tv"
     t.boolean  "wifi"
     t.boolean  "ascenceur"
@@ -96,6 +96,20 @@ ActiveRecord::Schema.define(version: 20180131151352) do
     t.float    "latitude"
     t.float    "longitude"
     t.text     "personnaliterdescription"
+    t.string   "age"
+    t.string   "langue"
+    t.boolean  "charges"
+    t.integer  "caution"
+    t.boolean  "francais"
+    t.boolean  "anglais"
+    t.boolean  "chinois"
+    t.boolean  "allemand"
+    t.boolean  "italien"
+    t.boolean  "espagnol"
+    t.boolean  "arabe"
+    t.boolean  "japonais"
+    t.boolean  "russe"
+    t.boolean  "indien"
   end
 
   add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
